@@ -1,4 +1,4 @@
-# 14 July 2026
+## 14 July 2026
 
 # Your UseCase Probably Doesn't Need to Exist
 
@@ -167,3 +167,6 @@ I opened this by saying most developers don't understand what UseCases are for. 
 | Would it only change because a business rule changed? | Yes | Legitimate — this is what a UseCase is for |
 
 Next time you need to write `class DoTheThingUseCase`, run it through that table before you run it through a code review. If you can't name the rule it encapsulates, you haven't found a UseCase, you've found a class looking for a job 🤣.
+
+
+_Disclosure: AI was used to proofread this article and correct grammar_
