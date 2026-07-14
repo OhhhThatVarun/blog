@@ -1,1 +1,1 @@
-- Your UseCase Probably Doesn't Need to Exist
+- [Your UseCase Probably Doesn't Need to Exist](https://raw.githubusercontent.com/OhhhThatVarun/blog/refs/heads/master/Your%20UseCase%20Probably%20Doesn't%20Need%20to%20Exist.md)
