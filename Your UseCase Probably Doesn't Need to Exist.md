@@ -10,18 +10,18 @@ Let's take an example on how it usually looks
 
 ```kotlin
 class GetSomeData(private val someDataRepo: SomeDataRepository) {
-	suspend fun invoke(dataID: Int): Flow<List<SomeData>> {
-	  return someDataRepo.getSomeDataByID(dataID)
-  } 
+	fun invoke(dataID: Int): Flow<List<SomeData>> {
+		return someDataRepo.getSomeDataByID(dataID)
+	}
 } 
 ```
 or
 
 ```kotlin
 class IsUserPremiumUseCase(private val userRepository: UserRepository) {
-  fun invoke(userId: Int): Flow<Boolean> {
-	  return userRepository.isPremiumUser(userId)
-  }
+	fun invoke(userId: Int): Flow<Boolean> {
+		return userRepository.isPremiumUser(userId)
+	}
 }
 ```
 
@@ -38,14 +38,14 @@ There is one more type of UseCases, i.e., abstract UseCases
 ```kotlin
 // RefreshTokenUseCase.kt
 interface RefreshTokenUseCase {
-    fun invoke()
+	fun invoke()
 }
 
 //RefreshTokenUseCaseImpl.kt
 class RefreshTokenUseCaseImpl(private val tokenRepository: TokenRepository, private val api: Api): RefreshTokenUseCase {
 	override fun invoke(): Flow<Unit> {
-	  return api.refreshToken(tokenRepository.getToken())
-  }
+		return api.refreshToken(tokenRepository.getToken())
+	}
 }
 ```
 
@@ -63,16 +63,15 @@ There is one more type of UseCases, i.e., Building Block UseCases
 
 ```kotlin
 class CheckoutUseCase(
-    private val canUserCheckoutUseCase: CanUserCheckoutUseCase,
-    private val placeOrderUseCase: PlaceOrderUseCase
+	private val canUserCheckoutUseCase: CanUserCheckoutUseCase,
+	private val placeOrderUseCase: PlaceOrderUseCase
 ) {
-    suspend fun invoke() {
-        val eligibility = canUserCheckoutUseCase.invoke()
-        if (eligibility != CheckoutEligibility.Eligible) {
-            throw CheckoutException()
-        }
-
-        placeOrderUseCase.invoke()
+	suspend fun invoke() {
+		val eligibility = canUserCheckoutUseCase.invoke()
+		if (eligibility != CheckoutEligibility.Eligible) {
+			throw CheckoutException()
+		}
+		placeOrderUseCase.invoke()
     }
 }
 ```
